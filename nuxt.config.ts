@@ -12,6 +12,7 @@ export default defineNuxtConfig({
     '@vueuse/nuxt',
     '@artmizu/nuxt-prometheus',
   ],
+  ssr: false,
 
   devtools: {
     enabled: true,
@@ -27,6 +28,12 @@ export default defineNuxtConfig({
     pageTransition: { name: 'page', mode: 'out-in' },
     layoutTransition: { name: 'layout', mode: 'out-in' },
   },
+  css: ['~/assets/css/main.css'],
+
+  colorMode: {
+    preference: 'light', // 'light' | 'dark' | 'system'
+    fallback: 'light',
+  },
 
   runtimeConfig: {
     databaseUrl: process.env.DATABASE_URL,
@@ -34,6 +41,13 @@ export default defineNuxtConfig({
     public: {
       appName: 'Page Builder',
       apiBase: process.env.NUXT_PUBLIC_API_BASE || '/api',
+    },
+  },
+
+  devServer: {
+    https: {
+      key: './localhost+2-key.pem',
+      cert: './localhost+2.pem',
     },
   },
 
@@ -66,13 +80,6 @@ export default defineNuxtConfig({
     },
   },
 
-  devServer: {
-    https: {
-      key: './localhost+2-key.pem',
-      cert: './localhost+2.pem',
-    },
-  },
-
   vite: {
     vue: {
       script: {
@@ -88,7 +95,6 @@ export default defineNuxtConfig({
       include: ['vue', 'vue-router', 'pinia'],
     },
   },
-
   typescript: {
     strict: true,
     typeCheck: false,
