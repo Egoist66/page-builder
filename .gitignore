@@ -23,4 +23,7 @@ logs
 .env.*
 !.env.example
 
-/app/generated/prisma
+/prisma/generated
+
+# Local SSL certificates
+*.pem
