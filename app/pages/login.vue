@@ -1,5 +1,4 @@
 <script lang="ts" setup>
-import { useAuth } from "~~/composables/useAuth";
 
 definePageMeta({
   layout: false,

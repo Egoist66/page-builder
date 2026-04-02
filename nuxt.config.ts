@@ -15,7 +15,7 @@ export default defineNuxtConfig({
 
   ui: {
     colors: {
-      primary: 'blue',
+      primary: 'sky',
       neutral: 'slate',
     },
   },
@@ -33,8 +33,8 @@ export default defineNuxtConfig({
       viewport: 'width=device-width, initial-scale=1',
       htmlAttrs: { lang: 'ru' },
     },
-    pageTransition: { name: 'page', mode: 'out-in' },
-    layoutTransition: { name: 'layout', mode: 'out-in' },
+    pageTransition: false,
+    layoutTransition: false,
   },
   css: ['~/assets/css/main.css'],
 
@@ -145,6 +145,6 @@ export default defineNuxtConfig({
   },
 
   pinia: {
-    storesDirs: ['./stores/**'],
+    storesDirs: ['./app/stores/**'],
   },
 })
