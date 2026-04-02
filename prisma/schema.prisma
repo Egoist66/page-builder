@@ -7,13 +7,21 @@ datasource db {
   provider = "mysql"
 }
 
+enum Role {
+  ADMIN
+  EDITOR
+  GUEST
+}
+
 model User {
   id        Int      @id @default(autoincrement())
   email     String   @unique @db.VarChar(255)
+  password  String   @db.VarChar(255)
   name      String?  @db.VarChar(255)
-  posts     Post[]
+  role      Role     @default(GUEST)
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+  posts     Post[]
 }
 
 model Post {
@@ -21,10 +29,10 @@ model Post {
   title     String   @db.VarChar(255)
   content   String?  @db.Text
   published Boolean  @default(false)
-  author    User     @relation(fields: [authorId], references: [id], onDelete: Cascade)
   authorId  Int
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+  author    User     @relation(fields: [authorId], references: [id], onDelete: Cascade)
 
   @@index([authorId])
 }

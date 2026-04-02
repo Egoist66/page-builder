@@ -12,6 +12,13 @@ export default defineNuxtConfig({
     '@vueuse/nuxt',
     '@artmizu/nuxt-prometheus',
   ],
+
+  ui: {
+    colors: {
+      primary: 'blue',
+      neutral: 'slate',
+    },
+  },
   ssr: false,
 
   devtools: {
@@ -21,6 +28,7 @@ export default defineNuxtConfig({
 
   app: {
     head: {
+      title: 'Page Builder',
       charset: 'utf-8',
       viewport: 'width=device-width, initial-scale=1',
       htmlAttrs: { lang: 'ru' },
@@ -31,8 +39,8 @@ export default defineNuxtConfig({
   css: ['~/assets/css/main.css'],
 
   colorMode: {
-    preference: 'light', // 'light' | 'dark' | 'system'
-    fallback: 'light',
+    preference: 'dark',
+    fallback: 'dark',
   },
 
   runtimeConfig: {
@@ -103,7 +111,7 @@ export default defineNuxtConfig({
 
   eslint: {
     config: {
-      stylistic: true,
+      stylistic: false,
     },
   },
 

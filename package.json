@@ -8,8 +8,8 @@
   "scripts": {
     "dev": "nuxt dev",
     "dev:host": "nuxt cleanup && nuxt dev --host",
-    "dev-https": "nuxt cleanup && nuxt dev --host --https",
-    "dev:full": "docker compose up -d && nuxt cleanup && concurrently -n nuxt,studio -c cyan,magenta \"nuxt dev --host --https\" \"prisma studio\"",
+    "dev-https": "nuxt cleanup && nuxt dev --host",
+    "dev:full": "docker compose up -d && nuxt cleanup && concurrently -n nuxt,studio -c cyan,magenta \"nuxt dev --host\" \"prisma studio\"",
     "build:analyze": "nuxt analyze",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
@@ -42,10 +42,12 @@
     "@prisma/adapter-mariadb": "^7.6.0",
     "@prisma/client": "^7.6.0",
     "@vueuse/nuxt": "14.2.1",
+    "jose": "^6.2.2",
     "mariadb": "^3.5.2",
     "nuxt": "^4.4.2",
     "vue": "^3.5.31",
-    "vue-router": "^5.0.4"
+    "vue-router": "^5.0.4",
+    "zod": "^4.3.6"
   },
   "devDependencies": {
     "@nuxt/eslint": "^1.15.2",
